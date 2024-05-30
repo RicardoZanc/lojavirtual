@@ -12,4 +12,5 @@ Route::post('/products/new', [ProductsController::class, 'store']);
 Route::get('/products/update/{id}', [ProductsController::class, 'edit']);
 Route::post('/products/update/', [ProductsController::class, 'update']);
 Route::get('/products/delete/{id}', [ProductsController::class, 'destroy']);
+Route::view('/dashboard', 'dashboard');
 
