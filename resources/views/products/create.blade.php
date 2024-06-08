@@ -4,7 +4,8 @@
             <h2 class="text-xl text-white font-bold">Cadastro de produtos</h2>
             </div>
         <div class="card-body flex place-content-center p-4">
-            <form class="w-2/3">
+            <form class="w-2/3" action="{{ url('products/new') }}" method="POST">
+                @csrf
                 <div>
                     <label for="name">{{ __('Name') }}:</label>
                     <input id="name" class="w-full block" type="text" name="name" required/>
@@ -12,7 +13,7 @@
                 </div>
                 <div>
                     <label for="description">{{ __('Description') }}:</label>
-                    <input id="description" class="w-full block" type="text" name="name" required/>
+                    <input id="description" class="w-full block" type="text" name="description" required/>
                     <x-input-error :messages="$errors->get('description')" class="mt-2" />
                 </div>
                 <div>
