@@ -36,7 +36,7 @@
                 <div class="flex  w-full justify-between mt-4">
                     <div class="">
                         <!-- <a class="btn btn-secondary bg-gray-500 text-white px-4 py-2.5 rounded hover:bg-gray-600" href="{{ url('/products') }}">Voltar</a> -->
-                         <x-secondary-button>Voltar</x-secondary-button>
+                         <x-secondary-link href="{{ url('/products') }}">Voltar</x-secondary-link>
                     </div>
                     <div >
                         <x-primary-button type="submit">Salvar</x-primary-button>
