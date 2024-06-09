@@ -19,12 +19,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/products', [ProductsController::class, 'index'])->name('products');
+    Route::get('/products', [ProductsController::class, 'index']);
     Route::get('/products/new', [ProductsController::class, 'create']);
     Route::post('/products/new', [ProductsController::class, 'store']);
     Route::get('/products/update/{id}', [ProductsController::class, 'edit']);
     Route::post('/products/update/', [ProductsController::class, 'update']);
     Route::get('/products/delete/{id}', [ProductsController::class, 'destroy']);
+
+    Route::get('/types', [ProductsController::class, 'index']);
+    Route::get('/types/new', [ProductsController::class, 'create']);
+    Route::post('/types/new', [ProductsController::class, 'store']);
+    Route::get('/types/update/{id}', [ProductsController::class, 'edit']);
+    Route::post('/types/update/', [ProductsController::class, 'update']);
+    Route::get('/types/delete/{id}', [ProductsController::class, 'destroy']);
    
 });
 
