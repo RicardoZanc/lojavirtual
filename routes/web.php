@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/update/{id}', [ProductsController::class, 'edit']);
     Route::post('/products/update/', [ProductsController::class, 'update']);
     Route::get('/products/delete/{id}', [ProductsController::class, 'destroy']);
-
+  
     Route::get('/types', [TypesController::class, 'index']);
     Route::get('/types/new', [TypesController::class, 'create']);
     Route::post('/types/new', [TypesController::class, 'store']);
