@@ -1,53 +1,24 @@
-@extends('crud_template')
-
-@section('content')
-<div class="card">
-    <div class="card-header">
-        <h2>Cadastro de produtos</h2>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col">
-                @if($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Problemas com seus dados</strong>
-                    <br>
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </div>
-                @endif
+    <div class="card border shadow-lg m-4">
+        <div class="card-header bg-gray-800 p-4">
+            <h2 class="text-xl text-white font-bold">Cadastro de tipos</h2>
             </div>
+        <div class="card-body flex place-content-center p-4">
+            <form class="w-2/3" action="{{ url('types/new') }}" method="POST">
+                @csrf
+                <div>
+                    <label for="name">{{ __('Name') }}:</label>
+                    <input id="name" class="w-full block" type="text" name="name" required/>
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <div class="flex  w-full justify-between mt-4">
+                    <div>
+                         <x-secondary-link href="{{ url('/types') }}">Voltar</x-secondary-link>
+                    </div>
+                    <div >
+                        <x-primary-button type="submit">Salvar</x-primary-button>
+                    </div>
+                </div>
+            </form>
         </div>
-        
-
-        <form action="{{ url('products/new') }}" method="POST">
-            @csrf
-            <strong>Nome:</strong>
-            <input class="form-control" name="name" type="text" />
-            <strong>Descrição:</strong>
-            <input class="form-control" name="description" type="textarea" />
-            <strong>Quantidade:</strong>
-            <input class="form-control" class="form-control" name="quantity" type="number" />
-            <strong>Preço:</strong>
-            <input class="form-control" name="price" type="number" />
-            <strong>Tipo:</strong>
-            <select class="form-control" name="type_id">
-                @foreach($types as $type)
-                <option value="{{$type['id']}}">{{$type['name']}}</option>
-                @endforeach
-            </select>
-            <div class="row mt-3">
-                <div class="col">
-                    <a class="btn btn-secondary" href="{{ url('/products') }}">Voltar</a>
-                </div>
-                <div class="col text-end">
-                    <button class="btn btn-primary" type="submit">Salvar</button>
-                </div>
-            </div>
-        </form>
     </div>
-</div>
-@endsection('content')
-
+</x-app-layout>
 
