@@ -1,36 +1,26 @@
 <x-app-layout>
-        <div class="px-6 mx-auto max-w-7xl">
-                <form action="{{ url('products/update') }}" method="POST">
+    <div class="card border shadow-lg m-4">
+        <div class="card-header bg-gray-800 p-4">
+            <h2 class="text-xl text-white font-bold">Edição do typo: {{ $type['name'] }}</h2>
+            </div>
+        <div class="card-body flex place-content-center p-4">
+         <form action="{{ url('types/update') }}" class="w-2/3" method="POST">
                 @csrf
-                <!-- campo oculto passando o ID como parâmetro no request -->
-                <input type="hidden" name="id" value="{{ $product['id'] }}">
-                <label>Nome:</label><br>
-                <input name="name" type="text" value="{{ $product['name'] }}" /><br>
-
-                <!-- Nome -->
-
+                <input type="hidden" name="id" value="{{ $type['id'] }}">
                 <div>
-                <x-input-label for="name" :value="__('Name')" />
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required/>
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    <label for="name">{{ __('Name') }}:</label>
+                    <input id="name" class="w-full block" type="text" name="name" value="{{ $type['name'] }}" required/>
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
-
-                
-                <label>Descrição:</label><br>
-                <input name="description" type="textarea" value="{{
-                $product['description'] }}"/><br>
-                <label>Quantidade:</label><br>
-                <input name="quantity" type="number" value="{{ $product['quantity']
-                }}"/><br>
-                <label>Preço:</label><br>
-                <input name="price" type="number" value="{{ $product['price'] }}"/><br>
-                <label>Tipo:</label><br>
-                <select name="type_id">
-                        @foreach ($types as $type)
-                        <option {{$product['type_id'] == $type['id'] ? "selected" : ""}} value="{{$type['id']}}">{{$type['name']}}</option>
-                        @endforeach
-                </select>
-                <input type="submit" value="Salvar" />
-                </form>
+                <div class="flex  w-full justify-between mt-4">
+                    <div>
+                         <x-secondary-link href="{{ url('/types') }}">Voltar</x-secondary-link>
+                    </div>
+                    <div >
+                        <x-primary-button type="submit">Salvar</x-primary-button>
+                    </div>
+                </div>
+            </form>
         </div>
+    </div>
 </x-app-layout>

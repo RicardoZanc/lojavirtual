@@ -16,7 +16,7 @@ class TypesController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'name' => 'required|min:2|max:30',
+            'name' => 'required|unique:types|min:2|max:30',
         ]);
         
         //não esquecer import do Type model.
@@ -24,12 +24,12 @@ class TypesController extends Controller
             [
                 'name' => $request->name,
             ]);
-            return redirect('/type')->with('success', 'Tipo
+            return redirect('/types')->with('success', 'Tipo
             cadastrado com sucesso!');;
         }
         
         public function index(){
-            return view('type.index', [
+            return view('types.index', [
                 'types' => Type::all()
             ]);
         }
@@ -38,7 +38,7 @@ class TypesController extends Controller
             //find é o método que faz select * from products where id= ?
             $type = Type::find($id);
             //retornamos a view passando a TUPLA de produto consultado
-            return view('types.edit', ['types' => $type]);
+            return view('types.edit', ['type' => $type]);
         }
         public function update(Request $request) {
             $request->validate([
@@ -58,7 +58,7 @@ class TypesController extends Controller
         $type = Type::find($id);
         //deleta o produto no banco
         $type->delete();
-        return redirect('/products')->with('success', 'Produto
+        return redirect('/types')->with('success', 'Produto
         excluído com sucesso!');
     }
 }

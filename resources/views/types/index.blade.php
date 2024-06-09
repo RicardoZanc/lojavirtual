@@ -10,15 +10,15 @@
     @if ($message = Session::get('success'))
     <p>{{ $message }}</p>
     @endif
-    <a href="{{url('products/new')}}">
+    <a href="{{url('types/new')}}">
         <button>Adicionar</button>
     </a>
     <ul>
-        @foreach($products as $product)
+        @foreach($types as $type)
         <li>
-            {{$product['name']}} {{$product['price']}}
-            <a href="{{ url('products/update', ['id' => $product->id]) }}">Editar</a>
-            <a href="{{ url('/products/delete', ['id' => $product->id]) }}">Deletar</a>
+            {{$type['name']}} {{$type['price']}}
+            <a href="{{ url('types/update', ['id' => $type->id]) }}">Editar</a>
+            <a href="{{ url('/types/delete', ['id' => $type->id]) }}">Deletar</a>
         </li>
         @endforeach
     </ul>
