@@ -6,11 +6,13 @@
     <a href="{{url('products/new')}}">
         <button>Adicionar</button>
     </a>
+
+    
     
     <section class="containe mx-auto grid grid-cols-4">
         @foreach($products as $product)
         <div class="px-4">
-            <img src="/storage/app/public/placeholder.jpg" width="500" height="600" alt="product image">
+            <img src="{{ asset('img/product-placeholder.png') }}" width="500" height="600" alt="product image">
             {{$product['name']}} {{$product['price']}}
             <a href="{{ url('products/update', ['id' => $product->id]) }}">Editar</a>
             <a href="{{ url('/products/delete', ['id' => $product->id]) }}">Deletar</a>
