@@ -38,7 +38,8 @@ class ProductsController extends Controller
         
         public function index(){
             return view('products.index', [
-                'products' => Product::all()
+                // 'products' => Product::all()
+                'products' => Product::all()->where('quantity', '>', 0)
             ]);
         }
         
