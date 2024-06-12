@@ -8,7 +8,7 @@
                 @csrf
                 <div>
                     <label for="name">{{ __('Name') }}:</label>
-                    <input id="name" class="w-full block" type="text" name="name" required/>
+                    <input id="name" class="w-full block" type="text" name="name" required />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
                 <div class="flex  w-full justify-between mt-4">
