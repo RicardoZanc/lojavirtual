@@ -32,8 +32,7 @@ class ProductsController extends Controller
                 'price' => $request->price,
                 'type_id' => $request->type_id
             ]);
-            return redirect('/products')->with('success', 'Produto
-            cadastrado com sucesso!');;
+            return redirect('/products')->with('success', '');;
         }
         
         public function welcome(){

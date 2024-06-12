@@ -13,7 +13,7 @@
                 </div>
                 <div>
                     <label for="description">{{ __('Description') }}:</label>
-                    <input id="description" class="w-full block" type="text" name="description" required/>
+                    <input id="description" class="w-full block" type="text" name="description"/>
                     <x-input-error :messages="$errors->get('description')" class="mt-2" />
                 </div>
                 <div>

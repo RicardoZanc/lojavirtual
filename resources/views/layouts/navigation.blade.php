@@ -37,7 +37,7 @@
              @unless (Auth::check())
             <div class="py-4">
                 <x-primary-link  href="{{ url('/login') }}" class="align-center mr-2">{{__('Login')}}</x-primary-link>
-                <x-secondary-link  href="{{ url('/login') }}" class="align-center">{{__('Register')}}</x-secondary-link>
+                <x-secondary-link  href="{{ url('/register') }}" class="align-center">{{__('Register')}}</x-secondary-link>
             </div>
             @endunless
             

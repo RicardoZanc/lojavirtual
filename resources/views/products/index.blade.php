@@ -1,10 +1,7 @@
 <x-app-layout>
     @if ($message = Session::get('success'))
-    <p>{{ $message }}</p>
+        <script>window.alert('{{$message}}')</script>
     @endif
-    
-    
-    
     <section class="container mx-auto grid grid-cols-2 cursor-pointer  gap-4 sm:grid-cols-5">
         <div class="col-span-2 p-0 sm:col-span-5 flex justify-end">
         <x-primary-link class="mt-2" href="{{url('products/new')}}">Adicionar</x-primary-link>
@@ -26,4 +23,6 @@
         </div>
         @endforeach
     </section>
+
+    
 </x-app-layout>

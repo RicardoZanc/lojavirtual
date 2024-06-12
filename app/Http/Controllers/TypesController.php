@@ -26,7 +26,7 @@ class TypesController extends Controller
                 'name' => $request->name,
             ]);
 
-            return redirect('/types')->with('success', 'Tipo cdastrado com sucesso!');;
+            return redirect('/types')->with('success', 'Tipo cadastrado com sucesso!');;
         }
         
         public function index(){
