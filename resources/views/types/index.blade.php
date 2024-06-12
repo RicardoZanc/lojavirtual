@@ -18,12 +18,11 @@
                         <h3 class="text-lg font-bold px-5">{{$type['name']}}</h3>
                     </div>
                     <div>
-                        <a href="{{ url('types/update', ['id' => $type->id]) }}">Editar</a>
+                        <a href="{{ url('types/update', ['id' => $type->id]) }}" class="hover:text-sky-500">Editar</a>
                     </div>
                     <div>
-                        <a onclick="return confirm(`Deseja deletar o tipo {{$type['name']}}?`)" href="{{ url('/types/delete', ['id' => $type->id]) }}">Deletar</a>
-                    </div>
-                    
+                        <a onclick="return confirm(`Deseja deletar o tipo {{$type['name']}}?`)" href="{{ url('/types/delete', ['id' => $type->id]) }}" class="hover:text-red-500">Deletar</a>
+                    </div> 
                 @endforeach
                 </div>
             </div>

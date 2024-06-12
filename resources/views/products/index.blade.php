@@ -15,11 +15,10 @@
             <div class="flex justify-between">
                 <div class="font-bold"><p>Valor:</p></div><div>R$ {{$product['price']}}</div>
             </div>
-            <a href="{{ url('products/update', ['id' => $product->id]) }}">Editar</a>
-            <a href="{{ url('/products/delete', ['id' => $product->id]) }}">
-                Apagar
-                <!-- <img src="{{ asset('img/trash.svg') }}" height="20px"> -->
-            </a>
+            <div class="flex justify-end gap-2">
+                <a href="{{ url('products/update', ['id' => $product->id]) }}" class="hover:text-sky-500">Editar</a>
+                <a href="{{ url('/products/delete', ['id' => $product->id]) }}" class="hover:text-red-500">Apagar</a>
+            </div>
         </div>
         @endforeach
     </section>
