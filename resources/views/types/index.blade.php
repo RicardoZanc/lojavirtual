@@ -19,7 +19,9 @@
                     <a href="{{ url('types/update', ['id' => $type->id]) }}">Editar</a>
                 </div>
                 <div>
-                    <a href="{{ url('/types/delete', ['id' => $type->id]) }}">Deletar</a>
+    
+                    <a onclick="return confirm(`Deseja deletar o tipo {{$type['name']}}?`)" href="{{ url('/types/delete', ['id' => $type->id]) }}">Deletar</a>
+                    
                 </div>
             @endforeach
             </div>
