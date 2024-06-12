@@ -36,10 +36,15 @@ class ProductsController extends Controller
             cadastrado com sucesso!');;
         }
         
+        public function welcome(){
+            return view('welcome', [
+            'products' => Product::all()->where('quantity', '>', 0)
+            ]);
+        }
+
         public function index(){
             return view('products.index', [
-                // 'products' => Product::all()
-                'products' => Product::all()->where('quantity', '>', 0)
+                'products' => Product::all()
             ]);
         }
         
