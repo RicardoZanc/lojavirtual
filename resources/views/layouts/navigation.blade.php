@@ -12,21 +12,35 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    @if (Auth::check())
                     <x-nav-link :href="url('/dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @endif
                     <x-nav-link :href="url('/')" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
+                    @if (Auth::check())
                     <x-nav-link :href="url('/products')" :active="request()->routeIs('dashboard')">
                         {{ __('Products') }}
                     </x-nav-link>
                     <x-nav-link :href="url('/types')" :active="request()->routeIs('dashboard')">
                         {{ __('Types') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 
+
+
+            <!-- login and register links -->
+             @unless (Auth::check())
+            <div class="py-4">
+                <x-primary-link  href="{{ url('/login') }}" class="align-center mr-2">{{__('Login')}}</x-primary-link>
+                <x-secondary-link  href="{{ url('/login') }}" class="align-center">{{__('Register')}}</x-secondary-link>
+            </div>
+            @endunless
+            
             @if (Auth::check())
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
