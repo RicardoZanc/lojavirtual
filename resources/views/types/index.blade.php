@@ -21,8 +21,9 @@
                 <div>
     
                     <a onclick="return confirm(`Deseja deletar o tipo {{$type['name']}}?`)" href="{{ url('/types/delete', ['id' => $type->id]) }}">Deletar</a>
-                    
+
                 </div>
+                
             @endforeach
             </div>
     </div>       
